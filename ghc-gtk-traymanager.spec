@@ -3,7 +3,7 @@
 %global pkg_name gtk-traymanager
 
 Name:           ghc-%{pkg_name}
-Version:        0.1.5
+Version:        0.1.6
 Release:        1%{?dist}
 Summary:        A wrapper around the eggtraymanager library for Linux system trays
 

@@ -3,14 +3,13 @@
 %global pkg_name taffybar
 
 Name:           %{pkg_name}
-Version:        0.4.5
+Version:        0.4.6
 Release:        3%{?dist}
 Summary:        A desktop bar similar to xmobar, but with more GUI
 
 License:        BSD
 Url:            https://hackage.haskell.org/package/%{name}
 Source0:        https://hackage.haskell.org/package/%{name}-%{version}/%{name}-%{version}.tar.gz
-Patch0:         taffybar-fix-network-uri-hack.patch
 
 BuildRequires:  ghc-Cabal-devel
 BuildRequires:  ghc-rpm-macros
@@ -28,6 +27,7 @@ BuildRequires:  ghc-gtk-devel
 BuildRequires:  ghc-gtk-traymanager-devel
 BuildRequires:  ghc-mtl-devel
 BuildRequires:  ghc-network-devel
+BuildRequires:  ghc-network-uri-devel
 BuildRequires:  ghc-old-locale-devel
 BuildRequires:  ghc-parsec-devel
 BuildRequires:  ghc-process-devel
@@ -75,8 +75,6 @@ This package provides the Haskell %{pkg_name} library development files.
 
 %prep
 %setup -q -n %{pkg_name}-%{version}
-%patch0 -p 1
-/usr/bin/cabal-tweak-flag network-uri False
 
 
 %build
@@ -99,7 +97,7 @@ This package provides the Haskell %{pkg_name} library development files.
 %license LICENSE
 %doc README.md CHANGELOG.md taffybar.hs.example taffybar.rc
 %{_bindir}/%{name}
-/usr/share/taffybar-0.4.5/taffybar.rc
+/usr/share/taffybar-0.4.6/taffybar.rc
 
 
 %files -n ghc-%{name} -f ghc-%{name}.files
